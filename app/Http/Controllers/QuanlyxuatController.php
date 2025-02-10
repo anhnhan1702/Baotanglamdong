@@ -43,7 +43,7 @@ class QuanlyxuatController extends Controller
         // $xuat->donvinhan = $request->donvinhan;
         $xuat->danhmuchienvat = $request->danhmuchienvat;
         $xuat->save();
-       return response('Thành công', 200);
+       return ('Thành công');
     }
     public function updatexuat(Request $request)
     {
@@ -59,11 +59,11 @@ class QuanlyxuatController extends Controller
         // $xuat->donvinhan = $request->data['donvinhan'];
         $xuat->danhmuchienvat = $request->data['danhmuchienvat'];
         $xuat->save();
-       return response('Thành công', 200);
+       return ('Thành công');
     }
     public function deletexuat(Request $request)
     {
         Xuatnhap::destroy($request->id);
-       return response('Thành công', 200);
+       return ('Thành công');
     }
 }

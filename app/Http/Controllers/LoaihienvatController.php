@@ -35,7 +35,7 @@ class LoaihienvatController extends Controller
         $loaihienvat->save();
         Helper::saveHistory('Thêm loại hiện vật', $loaihienvat->name);
 
-       return response('Thành công', 200);
+       return ('Thành công');
     }
     public function updateloaihienvat(Request $request)
     {
@@ -44,13 +44,13 @@ class LoaihienvatController extends Controller
         $loaihienvat->save();
         Helper::saveHistory('Sửa loại hiện vật', $loaihienvat->name);
 
-       return response('Thành công', 200);
+       return ('Thành công');
     }
     public function deleteloaihienvat(Request $request)
     {
         $loaihienvat = Loaihienvat::where('id', $request->id)->first();
         Helper::saveHistory('Xoá loại hiện vật', $loaihienvat->name);
         Loaihienvat::destroy($request->id);
-       return response('Thành công', 200);
+       return ('Thành công');
     }
 }

@@ -35,7 +35,7 @@ class BosuutaphinhanhController extends Controller
         $bosuutaphinhanh->save();
         Helper::saveHistory('Thêm bộ sưu tập hình ảnh', $bosuutaphinhanh->name);
 
-       return response('Thành công', 200);
+       return ('Thành công');
     }
     public function updatebosuutaphinhanh(Request $request)
     {
@@ -44,13 +44,13 @@ class BosuutaphinhanhController extends Controller
         $bosuutaphinhanh->save();
         Helper::saveHistory('Sửa bộ sưu tập hình ảnh', $bosuutaphinhanh->name);
 
-       return response('Thành công', 200);
+       return ('Thành công');
     }
     public function deletebosuutaphinhanh(Request $request)
     {
         $bosuutaphinhanh = Bosuutaphinhanh::where('id', $request->id)->first();
         Helper::saveHistory('Xoá bộ sưu tập hình ảnh', $bosuutaphinhanh->name);
         Bosuutaphinhanh::destroy($request->id);
-       return response('Thành công', 200);
+       return ('Thành công');
     }
 }

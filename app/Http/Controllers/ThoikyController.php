@@ -32,18 +32,18 @@ class ThoikyController extends Controller
         $thoiky = new Thoiky();
         $thoiky->name = $request->name;
         $thoiky->save();
-       return response('Thành công', 200);
+       return ('Thành công');
     }
     public function updatethoiky(Request $request)
     {
         $thoiky = Thoiky::where('id', $request->id)->first();
         $thoiky->name = $request->data['name'];
         $thoiky->save();
-       return response('Thành công', 200);
+       return ('Thành công');
     }
     public function deletethoiky(Request $request)
     {
         Thoiky::destroy($request->id);
-       return response('Thành công', 200);
+       return ('Thành công');
     }
 }

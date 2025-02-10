@@ -39,7 +39,7 @@ class HienvattrungbayController extends Controller
         $quanlyhienvattrungbay->save();
         Helper::saveHistory('Thêm hiện vật được trưng bày', $quanlyhienvattrungbay->title);
 
-       return response('Thành công', 200);
+       return ('Thành công');
     }
     public function updatequanlyhienvattrungbay(Request $request)
     {
@@ -49,13 +49,13 @@ class HienvattrungbayController extends Controller
         $quanlyhienvattrungbay->save();
         Helper::saveHistory('Sửa hiện vật được trưng bày', $quanlyhienvattrungbay->title);
 
-       return response('Thành công', 200);
+       return ('Thành công');
     }
     public function deletequanlyhienvattrungbay(Request $request)
     {
         $quanlyhienvattrungbay = hienvattrungbay::where('id', $request->id)->first();
         Helper::saveHistory('Xoá hiện vật được trưng bày', $quanlyhienvattrungbay->title);
         hienvattrungbay::destroy($request->id);
-       return response('Thành công', 200);
+       return ('Thành công');
     }
 }

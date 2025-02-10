@@ -36,7 +36,7 @@ class ChatlieuController extends Controller
         $chatlieu->save();
         Helper::saveHistory('Thêm chất liệu', $chatlieu->name);
 
-       return response('Thành công', 200);
+       return ('Thành công');
     }
     public function updatechatlieu(Request $request)
     {
@@ -45,13 +45,13 @@ class ChatlieuController extends Controller
         $chatlieu->save();
         Helper::saveHistory('Sửa chất liệu', $chatlieu->name);
 
-       return response('Thành công', 200);
+       return ('Thành công');
     }
     public function deletechatlieu(Request $request)
     {
         $chatlieu = Chatlieu::where('id', $request->id)->first();
         Helper::saveHistory('Xoá chất liệu', $chatlieu->name);
         Chatlieu::destroy($request->id);
-       return response('Thành công', 200);
+       return ('Thành công');
     }
 }

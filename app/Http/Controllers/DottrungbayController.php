@@ -38,7 +38,7 @@ class DottrungbayController extends Controller
         $dottrungbay->save();
         Helper::saveHistory('Thêm đợt trưng bày', $dottrungbay->title);
 
-       return response('Thành công', 200);
+       return ('Thành công');
     }
     public function updatedottrungbay(Request $request)
     {
@@ -48,13 +48,13 @@ class DottrungbayController extends Controller
         $dottrungbay->save();
         Helper::saveHistory('Sửa đợt trưng bày', $dottrungbay->title);
 
-       return response('Thành công', 200);
+       return ('Thành công');
     }
     public function deletedottrungbay(Request $request)
     {
         $dottrungbay = dottrungbay::where('id', $request->id)->first();
         Helper::saveHistory('Xoá đợt trưng bày', $dottrungbay->title);
         dottrungbay::destroy($request->id);
-       return response('Thành công', 200);
+       return ('Thành công');
     }
 }

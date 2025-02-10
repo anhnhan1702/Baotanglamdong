@@ -39,7 +39,7 @@ class VitritrungbayController extends Controller
         $vitritrungbay->save();
         Helper::saveHistory('Thêm vị trí trưng bày', $vitritrungbay->title);
 
-       return response('Thành công', 200);
+       return ('Thành công');
     }
     public function updatevitritrungbay(Request $request)
     {
@@ -49,13 +49,13 @@ class VitritrungbayController extends Controller
         $vitritrungbay->save();
         Helper::saveHistory('Sửa vị trí trưng bày', $vitritrungbay->title);
 
-       return response('Thành công', 200);
+       return ('Thành công');
     }
     public function deletevitritrungbay(Request $request)
     {
         $vitritrungbay = vitritrungbay::where('id', $request->id)->first();
         Helper::saveHistory('Xoá vị trí trưng bày', $vitritrungbay->title);
         vitritrungbay::destroy($request->id);
-       return response('Thành công', 200);
+       return ('Thành công');
     }
 }

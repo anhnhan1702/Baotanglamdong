@@ -107,7 +107,7 @@ class PostController extends Controller
         Helper::saveHistory('Xoá tin bài', $Post->title);
 
         Post::destroy($request->id);
-       return response('Thành công', 200);
+       return ('Thành công');
     }
 
     public function trangTin()

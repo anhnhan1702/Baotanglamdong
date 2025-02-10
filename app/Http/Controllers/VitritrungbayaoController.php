@@ -42,7 +42,7 @@ class VitritrungbayaoController extends Controller
 
         Helper::saveHistory('Thêm vị tri trưng bày ảo', $request->name);
 
-       return response('Thành công', 200);
+       return ('Thành công');
     }
 
     public function updateViTriTrungBayAo(Request $request)
@@ -53,7 +53,7 @@ class VitritrungbayaoController extends Controller
         $viTriTrungBayAo->save();
         Helper::saveHistory('Sửa vị tri trưng bày ảo', $request->data['name']);
 
-       return response('Thành công', 200);
+       return ('Thành công');
     }
 
     public function deleteViTriTrungBayAo(Request $request)
@@ -61,6 +61,6 @@ class VitritrungbayaoController extends Controller
         $title = Vitritrungbayao::where('id', $request->id)->first()->name;
         Helper::saveHistory('Xoá vị tri trưng bày ảo', $title);
         Vitritrungbayao::destroy($request->id);
-       return response('Thành công', 200);
+       return ('Thành công');
     }
 }

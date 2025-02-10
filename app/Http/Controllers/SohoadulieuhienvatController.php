@@ -49,7 +49,7 @@ class SohoadulieuhienvatController extends Controller
             $f->save();
         }
         Helper::saveHistory('Thêm dữ liệu số hóa hiện vật', $duLieuSoHoaHienVat->name);
-       return response('Thành công', 200);
+       return ('Thành công');
     }
 
     public function updateduLieuSoHoaHienVat(Request $request)
@@ -58,7 +58,7 @@ class SohoadulieuhienvatController extends Controller
         $duLieuSoHoaHienVat->name = $request->data['name'];
         $duLieuSoHoaHienVat->save();
         Helper::saveHistory('Sửa dữ liệu số hóa hiện vật', $duLieuSoHoaHienVat->name);
-       return response('Thành công', 200);
+       return ('Thành công');
     }
 
     public function deleteduLieuSoHoaHienVat(Request $request)
@@ -71,7 +71,7 @@ class SohoadulieuhienvatController extends Controller
         }
         Sohoadulieuhienvat::destroy($request->id);
 
-       return response('Thành công', 200);
+       return ('Thành công');
     }
   
 }

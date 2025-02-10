@@ -38,7 +38,7 @@ class DanhmucController extends Controller
         $Category->save();
         Helper::saveHistory('Thêm danh mục', $request->title);
         
-       return response('Thành công', 200);
+       return ('Thành công');
     }
 
     public function updateCategory(Request $request)
@@ -49,7 +49,7 @@ class DanhmucController extends Controller
         $Category->save();
         Helper::saveHistory('Sửa danh mục', $request->data['title']);
 
-       return response('Thành công', 200);
+       return ('Thành công');
     }
 
     public function deleteCategory(Request $request)
@@ -57,6 +57,6 @@ class DanhmucController extends Controller
         $title = Danhmuc::where('id',$request->id)->first()->title;
         Helper::saveHistory('Xoá danh mục', $title);
         Danhmuc::destroy($request->id);
-       return response('Thành công', 200);
+       return ('Thành công');
     }
 }

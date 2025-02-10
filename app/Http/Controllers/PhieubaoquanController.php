@@ -57,6 +57,6 @@ class PhieubaoquanController extends Controller
             $name = $hienVatSoBaoQuan['name_hienvat'] .' - '.$hienVatSoBaoQuan['so_ky_hieu_hienvat'];
             Helper::saveHistory('Cập nhật dữ liệu hiện vật sổ bảo quản hiện vật', $name);
         }
-       return response('Thành công', 200);
+       return ('Thành công');
     }
 }

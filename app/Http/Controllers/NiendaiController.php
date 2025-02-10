@@ -33,18 +33,18 @@ class NiendaiController extends Controller
         $niendaituongdoi = new Niendai();
         $niendaituongdoi->name = $request->name;
         $niendaituongdoi->save();
-       return response('Thành công', 200);
+       return ('Thành công');
     }
     public function updateniendaituongdoi(Request $request)
     {
         $niendaituongdoi = Niendai::where('id', $request->id)->first();
         $niendaituongdoi->name = $request->data['name'];
         $niendaituongdoi->save();
-       return response('Thành công', 200);
+       return ('Thành công');
     }
     public function deleteniendaituongdoi(Request $request)
     {
         Niendai::destroy($request->id);
-       return response('Thành công', 200);
+       return ('Thành công');
     }
 }

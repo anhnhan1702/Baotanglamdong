@@ -13,13 +13,13 @@ use App\Helper;
 
 class BaoquanController extends Controller
 {
-    
+
     public function hienvattrongkho(Request $request)
     {
         $kho_id = $request->all();
-        $hienvat = Hienvat::whereIn('vitrihv_id', $kho_id)->where('checkxuatnhap',1)->select('name', 'id','so_ky_hieu')->get();
+        $hienvat = Hienvat::whereIn('vitrihv_id', $kho_id)->where('checkxuatnhap', 1)->select('name', 'id', 'so_ky_hieu')->get();
         foreach ($hienvat as $hv) {
-            $hv->name = $hv->name.'-'.$hv->so_ky_hieu;
+            $hv->name = $hv->name . '-' . $hv->so_ky_hieu;
         }
         return $hienvat;
     }
@@ -30,7 +30,7 @@ class BaoquanController extends Controller
         $baoquan->hienvat_id = $request->hienvat_id;
         $baoquan->kho_id = $request->ajaxkho;
         $baoquan->save();
-       return response('Thành công', 200);
+        return ('Thành công');
     }
     public function ajaxphieubaoquan(Request $request)
     {
@@ -54,7 +54,7 @@ class BaoquanController extends Controller
         $phieubaoquan->save();
         Helper::saveHistory('Thêm phiếu bảo quản', $phieubaoquan->name);
 
-       return response('Thành công', 200);
+        return ('Thành công');
     }
     public function updatephieubaoquan(Request $request)
     {
@@ -64,14 +64,14 @@ class BaoquanController extends Controller
         $phieubaoquan->save();
         Helper::saveHistory('Sửa phiếu bảo quản', $phieubaoquan->name);
 
-       return response('Thành công', 200);
+        return ('Thành công');
     }
     public function deletephieubaoquan(Request $request)
     {
         $phieubaoquan = Phieubaoquan::where('id', $request->id)->first();
         Helper::saveHistory('Xoá phiếu bảo quản', $phieubaoquan->name);
         Phieubaoquan::destroy($request->id);
-       return response('Thành công', 200);
+        return ('Thành công');
     }
     //
     public function phieubaoquan(Request $request)
@@ -104,7 +104,7 @@ class BaoquanController extends Controller
         $baoquan->save();
         Helper::saveHistory('Thêm bảo quản', $baoquan->name);
 
-       return response('Thành công', 200);
+        return ('Thành công');
     }
     public function updatebaoquan(Request $request)
     {
@@ -114,14 +114,14 @@ class BaoquanController extends Controller
         $baoquan->save();
         Helper::saveHistory('Sửa bảo quản', $baoquan->name);
 
-       return response('Thành công', 200);
+        return ('Thành công');
     }
     public function deletebaoquan(Request $request)
     {
         $baoquan = Baoquan::where('id', $request->id)->first();
         Helper::saveHistory('Xoá bảo quản', $baoquan->name);
         Baoquan::destroy($request->id);
-       return response('Thành công', 200);
+        return ('Thành công');
     }
     public function trahienvatbaoquan(Request $request)
     {
@@ -197,7 +197,7 @@ class BaoquanController extends Controller
     {
         $SoBaoQuanHienVat = new Phieubaoquan();
         $SoBaoQuanHienVat->name = $request->name;
-   
+
         $SoBaoQuanHienVat->save();
 
         $result = [];
@@ -206,17 +206,17 @@ class BaoquanController extends Controller
         }
 
         $SoBaoQuanHienVat->hienvats()->attach($result);
-      
+
         Helper::saveHistory('Thêm phiếu bảo quản', $request->name);
-        
-       return response('Thành công', 200);
+
+        return ('Thành công');
     }
 
     public function updateSoBaoQuanHienVat(Request $request)
     {
         $SoBaoQuanHienVat = Phieubaoquan::where('id', $request->id)->first();
         $SoBaoQuanHienVat->name = $request->data['name'];
-   
+
         $SoBaoQuanHienVat->save();
 
         $result = [];
@@ -224,18 +224,17 @@ class BaoquanController extends Controller
             $result[] = $item['id'];
         }
         $SoBaoQuanHienVat->hienvats()->sync($result);
-      
+
         Helper::saveHistory('Sửa phiếu bảo quản', $request->data['name']);
 
-       return response('Thành công', 200);
+        return ('Thành công');
     }
 
     public function deleteSoBaoQuanHienVat(Request $request)
     {
-        $title = Phieubaoquan::where('id',$request->id)->first()->name;
+        $title = Phieubaoquan::where('id', $request->id)->first()->name;
         Helper::saveHistory('Xoá phiếu bảo quản', $title);
         Phieubaoquan::destroy($request->id);
-       return response('Thành công', 200);
+        return ('Thành công');
     }
-
 }

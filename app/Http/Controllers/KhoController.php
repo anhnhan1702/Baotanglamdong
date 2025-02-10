@@ -83,7 +83,7 @@ class KhoController extends Controller
         $kho->save();
         Helper::saveHistory('Thêm kho', $kho->name);
 
-       return response('Thành công', 200);
+       return ('Thành công');
     }
     public function updatekho(Request $request)
     {
@@ -94,7 +94,7 @@ class KhoController extends Controller
         $kho->save();
         Helper::saveHistory('Sửa kho', $kho->name);
 
-       return response('Thành công', 200);
+       return ('Thành công');
     }
     public function deletekho(Request $request)
     {
@@ -102,7 +102,7 @@ class KhoController extends Controller
         Helper::saveHistory('Xoá kho', $kho->name);
 
         Kho::destroy($request->id);
-       return response('Thành công', 200);
+       return ('Thành công');
     }
     public function datakho()
     {
