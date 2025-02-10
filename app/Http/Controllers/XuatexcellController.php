@@ -22,7 +22,6 @@ class XuatexcellController extends Controller
        $data = new Testapi();
        $data->name =$request->all();
        $data->save();
-       return $request->all();
     }
     public function apilay(Request $request)
     {
