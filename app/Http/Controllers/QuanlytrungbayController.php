@@ -42,7 +42,7 @@ class QuanlytrungbayController extends Controller
         $quanlytrungbay->save();
         Helper::saveHistory('Thêm trưng bày', $quanlytrungbay->name);
 
-        return 'thành công';
+       return response('Thành công', 200);
     }
     public function updatequanlytrungbay(Request $request)
     {   
@@ -54,14 +54,14 @@ class QuanlytrungbayController extends Controller
         $quanlytrungbay->save();
         Helper::saveHistory('Sửa trưng bày', $quanlytrungbay->name);
 
-        return 'thành công';
+       return response('Thành công', 200);
     }
     public function deletequanlytrungbay(Request $request)
     {
         $quanlytrungbay = Quanlytrungbay::where('id', $request->id)->first();
         Helper::saveHistory('Xoá trưng bày', $quanlytrungbay->name);
         Quanlytrungbay::destroy($request->id);
-        return 'thành công';
+       return response('Thành công', 200);
     }
     // view trưng bày hiện vật
     public function trungbayhienvat()

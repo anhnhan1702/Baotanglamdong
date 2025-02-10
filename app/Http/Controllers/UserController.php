@@ -65,7 +65,7 @@ class UserController extends Controller
         $nguoidung->save();
         Helper::saveHistory('Thêm người dùng', $nguoidung->name);
 
-        return 'thành công';
+       return response('Thành công', 200);
     }
 
     public function updatenguoidung(Request $request)
@@ -84,7 +84,7 @@ class UserController extends Controller
         Helper::saveHistory('Sửa người dùng', $nguoidung->name);
 
         // return $nguoidung;
-        return 'thành công';
+       return response('Thành công', 200);
     }
     
     public function deletenguoidung(Request $request)
@@ -92,7 +92,7 @@ class UserController extends Controller
         $nguoidung = User::where('id', $request->id)->first();
         Helper::saveHistory('Xoá người dùng', $nguoidung->name);
         User::destroy($request->id);
-        return 'thành công';
+       return response('Thành công', 200);
     }
     public function changepassword()
     {

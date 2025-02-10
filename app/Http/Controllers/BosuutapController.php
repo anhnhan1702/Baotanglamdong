@@ -68,7 +68,7 @@ class BosuutapController extends Controller
         $bosuutap->save();
         Helper::saveHistory('Thêm bộ sưu tập', $bosuutap->name);
 
-        return 'thành công';
+       return response('Thành công', 200);
     }
     public function updatebosuutap(Request $request)
     {   
@@ -80,14 +80,14 @@ class BosuutapController extends Controller
         $bosuutap->save();
         Helper::saveHistory('Sửa bộ sưu tập', $bosuutap->name);
 
-        return 'thành công';
+       return response('Thành công', 200);
     }
     public function deletebosuutap(Request $request)
     {
         $bosuutap = Bosuutap::where('id', $request->id)->first();
         Helper::saveHistory('Xoá bộ sưu tập', $bosuutap->name);
         Bosuutap::destroy($request->id);
-        return 'thành công';
+       return response('Thành công', 200);
     }
     // hiện vật thuộc bộ sưu tập
     public function hienvatbosuutap()

@@ -43,7 +43,7 @@ class PhongbanController extends Controller
         }
         Helper::saveHistory('Thêm phòng ban', $phongban->name);
 
-        return 'thành công';
+       return response('Thành công', 200);
     }
     public function updatephongban(Request $request)
     {
@@ -55,7 +55,7 @@ class PhongbanController extends Controller
         }
         Helper::saveHistory('Sửa phòng ban', $phongban->name);
 
-        return 'thành công';
+       return response('Thành công', 200);
     }
     public function deletephongban(Request $request)
     {

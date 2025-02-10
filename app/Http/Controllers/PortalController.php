@@ -58,7 +58,7 @@ class PortalController extends Controller
             $f->idtruong =  $Portal->id;
             $f->save();
         }
-        return 'thành công';
+       return response('Thành công', 200);
     }
 
     public function updatePortal(Request $request)
@@ -73,7 +73,7 @@ class PortalController extends Controller
 
         Helper::saveHistory('Sửa portal', $Portal->title);
 
-        return 'thành công';
+       return response('Thành công', 200);
     }
 
     public function deletePortal(Request $request)
@@ -81,6 +81,6 @@ class PortalController extends Controller
         $Portal = Portal::where('id', $request->id)->first();
         Helper::saveHistory('Xoá portal', $Portal->title);
         Portal::destroy($request->id);
-        return 'thành công';
+       return response('Thành công', 200);
     }
 }

@@ -43,7 +43,7 @@ class PagenewController extends Controller
         $Pagenew->save();
         Helper::saveHistory('Thêm trang con', $Pagenew->title);
 
-        return 'thành công';
+       return response('Thành công', 200);
     }
 
     public function updatePagenew(Request $request)
@@ -57,7 +57,7 @@ class PagenewController extends Controller
         $Pagenew->save();
         Helper::saveHistory('Sửa trang con', $Pagenew->title);
 
-        return 'thành công';
+       return response('Thành công', 200);
     }
 
     public function deletePagenew(Request $request)
@@ -65,6 +65,6 @@ class PagenewController extends Controller
         $Pagenew = Pagenew::where('id', $request->id)->first();
         Helper::saveHistory('Xoá trang con', $Pagenew->title);
         Pagenew::destroy($request->id);
-        return 'thành công';
+       return response('Thành công', 200);
     }
 }

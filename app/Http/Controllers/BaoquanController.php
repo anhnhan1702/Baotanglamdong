@@ -13,6 +13,7 @@ use App\Helper;
 
 class BaoquanController extends Controller
 {
+    
     public function hienvattrongkho(Request $request)
     {
         $kho_id = $request->all();
@@ -29,7 +30,7 @@ class BaoquanController extends Controller
         $baoquan->hienvat_id = $request->hienvat_id;
         $baoquan->kho_id = $request->ajaxkho;
         $baoquan->save();
-        return 'thành công';
+       return response('Thành công', 200);
     }
     public function ajaxphieubaoquan(Request $request)
     {
@@ -53,7 +54,7 @@ class BaoquanController extends Controller
         $phieubaoquan->save();
         Helper::saveHistory('Thêm phiếu bảo quản', $phieubaoquan->name);
 
-        return 'thành công';
+       return response('Thành công', 200);
     }
     public function updatephieubaoquan(Request $request)
     {
@@ -63,14 +64,14 @@ class BaoquanController extends Controller
         $phieubaoquan->save();
         Helper::saveHistory('Sửa phiếu bảo quản', $phieubaoquan->name);
 
-        return 'thành công';
+       return response('Thành công', 200);
     }
     public function deletephieubaoquan(Request $request)
     {
         $phieubaoquan = Phieubaoquan::where('id', $request->id)->first();
         Helper::saveHistory('Xoá phiếu bảo quản', $phieubaoquan->name);
         Phieubaoquan::destroy($request->id);
-        return 'thành công';
+       return response('Thành công', 200);
     }
     //
     public function phieubaoquan(Request $request)
@@ -103,7 +104,7 @@ class BaoquanController extends Controller
         $baoquan->save();
         Helper::saveHistory('Thêm bảo quản', $baoquan->name);
 
-        return 'thành công';
+       return response('Thành công', 200);
     }
     public function updatebaoquan(Request $request)
     {
@@ -113,14 +114,14 @@ class BaoquanController extends Controller
         $baoquan->save();
         Helper::saveHistory('Sửa bảo quản', $baoquan->name);
 
-        return 'thành công';
+       return response('Thành công', 200);
     }
     public function deletebaoquan(Request $request)
     {
         $baoquan = Baoquan::where('id', $request->id)->first();
         Helper::saveHistory('Xoá bảo quản', $baoquan->name);
         Baoquan::destroy($request->id);
-        return 'thành công';
+       return response('Thành công', 200);
     }
     public function trahienvatbaoquan(Request $request)
     {
@@ -208,7 +209,7 @@ class BaoquanController extends Controller
       
         Helper::saveHistory('Thêm phiếu bảo quản', $request->name);
         
-        return 'thành công';
+       return response('Thành công', 200);
     }
 
     public function updateSoBaoQuanHienVat(Request $request)
@@ -226,7 +227,7 @@ class BaoquanController extends Controller
       
         Helper::saveHistory('Sửa phiếu bảo quản', $request->data['name']);
 
-        return 'thành công';
+       return response('Thành công', 200);
     }
 
     public function deleteSoBaoQuanHienVat(Request $request)
@@ -234,7 +235,7 @@ class BaoquanController extends Controller
         $title = Phieubaoquan::where('id',$request->id)->first()->name;
         Helper::saveHistory('Xoá phiếu bảo quản', $title);
         Phieubaoquan::destroy($request->id);
-        return 'thành công';
+       return response('Thành công', 200);
     }
 
 }

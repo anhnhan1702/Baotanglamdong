@@ -42,7 +42,7 @@ class DottrungbayaoController extends Controller
         $dotTrungBayAo->thoigianketthuc = $request->thoigianketthuc;
         $dotTrungBayAo->save();
         Helper::saveHistory('Thêm sổ di chuyển hiện vật', $request->name);
-        return 'thành công';
+       return response('Thành công', 200);
     }
 
     public function updateQuanLyDotTruongBayAo(Request $request)
@@ -55,7 +55,7 @@ class DottrungbayaoController extends Controller
         $dotTrungBayAo->save();
         Helper::saveHistory('Sửa sổ di chuyển hiện vật', $request->data['name']);
 
-        return 'thành công';
+       return response('Thành công', 200);
     }
 
     public function deleteQuanLyDotTruongBayAo(Request $request)
@@ -63,6 +63,6 @@ class DottrungbayaoController extends Controller
         $title = Dottrungbayao::where('id', $request->id)->first()->name;
         Helper::saveHistory('Xoá sổ di chuyển hiện vật', $title);
         Dottrungbayao::destroy($request->id);
-        return 'thành công';
+       return response('Thành công', 200);
     }
 }

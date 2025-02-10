@@ -419,7 +419,7 @@ class HienvatController extends Controller
         }
         Helper::saveHistory('Lưu hiện vật', $quanlyhienvat->name);
 
-        return 'thành công';
+       return response('Thành công', 200);
     }
     public function updatequanlyhienvat(Request $request)
     {
@@ -537,14 +537,14 @@ class HienvatController extends Controller
         }
         Helper::saveHistory('Sửa hiện vật', $quanlyhienvat->name);
 
-        return 'thành công';
+       return response('Thành công', 200);
     }
     public function deletequanlyhienvat(Request $request)
     {
         $quanlyhienvat = Hienvat::where('id', $request->id)->first();
         Helper::saveHistory('Xoá hiện vật', $quanlyhienvat->name);
         Hienvat::destroy($request->id);
-        return 'thành công';
+       return response('Thành công', 200);
     }
     public function viewthemsuahienvat(Request $request)
     {

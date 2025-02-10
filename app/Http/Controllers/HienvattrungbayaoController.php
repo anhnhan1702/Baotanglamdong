@@ -49,7 +49,7 @@ class HienvattrungbayaoController extends Controller
 
         Helper::saveHistory('Thêm hiện vật trưng bày ảo', $request->hienvat_id);
         
-        return 'thành công';
+       return response('Thành công', 200);
     }
 
     public function updateHienVatTrungBayAo(Request $request)
@@ -62,7 +62,7 @@ class HienvattrungbayaoController extends Controller
       
         Helper::saveHistory('Sửa hiện vật trưng bày ảo', $request->data['hienvat_id']);
 
-        return 'thành công';
+       return response('Thành công', 200);
     }
 
     public function deleteHienVatTrungBayAo(Request $request)
@@ -70,6 +70,6 @@ class HienvattrungbayaoController extends Controller
         $title = Hienvattrungbayao::where('id',$request->id)->first()->name;
         Helper::saveHistory('Xoá hiện vật trưng bày ảo', $title);
         Hienvattrungbayao::destroy($request->id);
-        return 'thành công';
+       return response('Thành công', 200);
     }
 }
