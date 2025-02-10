@@ -25,10 +25,7 @@ class ImportFromDataBackupCommand extends Command
      *
      * @return void
      */
-    public function __construct()
-    {
-        parent::__construct();
-    }
+    
 
     /**
      * Execute the console command.
