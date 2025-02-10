@@ -36,7 +36,7 @@ class MediaController extends Controller
         $media->save();
         Helper::saveHistory('Lưu media', $media->name);
 
-       return ('Thành công');
+     return response()->json(['message' => 'Thành công'], 200);
     }
     public function updatemedia(Request $request)
     {
@@ -45,14 +45,14 @@ class MediaController extends Controller
         $media->save();
         Helper::saveHistory('Sửa media', $media->name);
 
-       return ('Thành công');
+     return response()->json(['message' => 'Thành công'], 200);
     }
     public function deletemedia(Request $request)
     {
         $media = Media::where('id', $request->id)->first();
         Helper::saveHistory('Xoá media', $media->name);
         Media::destroy($request->id);
-       return ('Thành công');
+     return response()->json(['message' => 'Thành công'], 200);
     }
 
     public function testscss()

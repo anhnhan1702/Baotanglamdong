@@ -36,7 +36,7 @@ class SystemController extends Controller
         $hethong = new System();
         $hethong->name = $request->name;
         $hethong->save();
-       return ('Thành công');
+     return response()->json(['message' => 'Thành công'], 200);
     }
 
 }

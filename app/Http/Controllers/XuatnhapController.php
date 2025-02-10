@@ -304,7 +304,7 @@ class XuatnhapController extends Controller
 
 
       
-       return ('Thành công');
+     return response()->json(['message' => 'Thành công'], 200);
     }
     public function updatexuatnhap(Request $request)
     {
@@ -382,14 +382,14 @@ class XuatnhapController extends Controller
         $xuatnhap->save();
         Helper::saveHistory('Sửa nhập xuất', $xuatnhap->name);
 
-       return ('Thành công');
+     return response()->json(['message' => 'Thành công'], 200);
     }
     public function deletexuatnhap(Request $request)
     {
         $xuatnhap = Xuatnhap::where('id', $request->id)->first();
         Helper::saveHistory('Xoá nhập xuất', $xuatnhap->name);
         Xuatnhap::destroy($request->id);
-       return ('Thành công');
+     return response()->json(['message' => 'Thành công'], 200);
     }
     // lấy thông tin hiện vật và vị trí hiện vật
     public function infohienvatvitrikho(Request $request)

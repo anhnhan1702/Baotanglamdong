@@ -36,7 +36,7 @@ class QuanlyhinhanhController extends Controller
         $quanlyhinhanh->save();
         Helper::saveHistory('Thêm quản lý hình ảnh', $quanlyhinhanh->name);
 
-       return ('Thành công');
+     return response()->json(['message' => 'Thành công'], 200);
     }
     public function updatequanlyhinhanh(Request $request)
     {
@@ -45,7 +45,7 @@ class QuanlyhinhanhController extends Controller
         $quanlyhinhanh->save();
         Helper::saveHistory('Sửa quản lý hình ảnh', $quanlyhinhanh->name);
 
-       return ('Thành công');
+     return response()->json(['message' => 'Thành công'], 200);
     }
     public function deletequanlyhinhanh(Request $request)
     {
@@ -53,6 +53,6 @@ class QuanlyhinhanhController extends Controller
         Helper::saveHistory('Xoá quản lý hình ảnh', $quanlyhinhanh->name);
 
         Quanlyhinhanh::destroy($request->id);
-       return ('Thành công');
+     return response()->json(['message' => 'Thành công'], 200);
     }
 }

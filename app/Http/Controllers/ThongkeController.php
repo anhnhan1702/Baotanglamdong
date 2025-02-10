@@ -133,19 +133,19 @@ class ThongkeController extends Controller
     //     $baocaothongke = new Thongke();
     //     $baocaothongke->name = $request->name;
     //     $baocaothongke->save();
-    //    return ('Thành công');
+    //  return response()->json(['message' => 'Thành công'], 200);
     // }
     // public function updatebaocaothongke(Request $request)
     // {
     //     $baocaothongke = Thongke::where('id', $request->id)->first();
     //     $baocaothongke->name = $request->data['name'];
     //     $baocaothongke->save();
-    //    return ('Thành công');
+    //  return response()->json(['message' => 'Thành công'], 200);
     // }
     // public function deletebaocaothongke(Request $request)
     // {
     //     Thongke::destroy($request->id);
-    //    return ('Thành công');
+    //  return response()->json(['message' => 'Thành công'], 200);
     // }
     // gallery hiện vật
     public function galleryhienvat(Request $request)

@@ -42,7 +42,7 @@ class TrungbayaoController extends Controller
         $trungbayao->save();
         Helper::saveHistory('Thêm trưng bày ảo', $trungbayao->name);
 
-       return ('Thành công');
+     return response()->json(['message' => 'Thành công'], 200);
     }
     public function updatetrungbayao(Request $request)
     {   
@@ -53,7 +53,7 @@ class TrungbayaoController extends Controller
         $trungbayao->save();
         Helper::saveHistory('Sửa trưng bày ảo', $trungbayao->name);
 
-       return ('Thành công');
+     return response()->json(['message' => 'Thành công'], 200);
     }
     public function deletetrungbayao(Request $request)
     {
@@ -62,7 +62,7 @@ class TrungbayaoController extends Controller
         Helper::saveHistory('Xoá trưng bày ảo', $trungbayao->name);
        
         Trungbayao::destroy($request->id);
-       return ('Thành công');
+     return response()->json(['message' => 'Thành công'], 200);
     }
     // trưng bày ảo hiện vật
     public function trungbayaohienvat()

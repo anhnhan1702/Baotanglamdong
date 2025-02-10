@@ -49,7 +49,7 @@ class SodichuyenhienvatController extends Controller
       
         Helper::saveHistory('Thêm sổ di chuyển hiện vật', $request->name);
         
-       return ('Thành công');
+     return response()->json(['message' => 'Thành công'], 200);
     }
 
     public function updateSoDiChuyen(Request $request)
@@ -67,7 +67,7 @@ class SodichuyenhienvatController extends Controller
       
         Helper::saveHistory('Sửa sổ di chuyển hiện vật', $request->data['name']);
 
-       return ('Thành công');
+     return response()->json(['message' => 'Thành công'], 200);
     }
 
     public function deleteSoDiChuyen(Request $request)
@@ -75,6 +75,6 @@ class SodichuyenhienvatController extends Controller
         $title = Sodichuyenhienvat::where('id',$request->id)->first()->name;
         Helper::saveHistory('Xoá sổ di chuyển hiện vật', $title);
         Sodichuyenhienvat::destroy($request->id);
-       return ('Thành công');
+     return response()->json(['message' => 'Thành công'], 200);
     }
 }

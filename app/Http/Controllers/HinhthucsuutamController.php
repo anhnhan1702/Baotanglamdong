@@ -36,7 +36,7 @@ class HinhthucsuutamController extends Controller
         $hinhthucsuutam->save();
         Helper::saveHistory('Thêm hình thức sưu tầm', $hinhthucsuutam->name);
 
-       return ('Thành công');
+     return response()->json(['message' => 'Thành công'], 200);
     }
     public function updatehinhthucsuutam(Request $request)
     {
@@ -45,13 +45,13 @@ class HinhthucsuutamController extends Controller
         $hinhthucsuutam->save();
         Helper::saveHistory('Sửa hình thức sưu tầm', $hinhthucsuutam->name);
 
-       return ('Thành công');
+     return response()->json(['message' => 'Thành công'], 200);
     }
     public function deletehinhthucsuutam(Request $request)
     { 
         $hinhthucsuutam = Hinhthucsuutam::where('id', $request->id)->first();
         Helper::saveHistory('Xoá hình thức sưu tầm', $hinhthucsuutam->name);
         Hinhthucsuutam::destroy($request->id);
-       return ('Thành công');
+     return response()->json(['message' => 'Thành công'], 200);
     }
 }

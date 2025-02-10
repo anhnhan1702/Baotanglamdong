@@ -37,7 +37,7 @@ class ChucvuController extends Controller
         $nhomquyen->save();
         Helper::saveHistory('Thêm nhóm quyền', $nhomquyen->name);
 
-       return ('Thành công');
+     return response()->json(['message' => 'Thành công'], 200);
     }
 
     public function updatenhomquyen(Request $request)
@@ -47,7 +47,7 @@ class ChucvuController extends Controller
         $nhomquyen->save();
         Helper::saveHistory('Sửa nhóm quyền', $nhomquyen->name);
 
-       return ('Thành công');
+     return response()->json(['message' => 'Thành công'], 200);
     }
 
     public function deletenhomquyen(Request $request)
@@ -56,7 +56,7 @@ class ChucvuController extends Controller
         Helper::saveHistory('Xoá nhóm quyền', $nhomquyen->name);
 
         Chucvu::destroy($request->id);
-       return ('Thành công');
+     return response()->json(['message' => 'Thành công'], 200);
     }
    
 }
