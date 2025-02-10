@@ -1,0 +1,9 @@
+html {
+    font-family: "Times New Roman", Times, serif;
+    width: 297mm;
+    margin: 0 auto;
+    
+}
+html body{
+    padding: 0.25in 0.75in 0.13in 1.25in ;   
+}
