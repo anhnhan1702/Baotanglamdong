@@ -25,8 +25,6 @@ class ImportFromDataBackupCommand extends Command
      *
      * @return void
      */
-    
-
     /**
      * Execute the console command.
      *
